@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { authPost } from './api/useAuthPost';
+import { authPost } from './apis/useAuthPost';
 import * as JoinStyle from './style/join';
 import { authCheck } from '../auth/hooks/useAuthCheck';
 

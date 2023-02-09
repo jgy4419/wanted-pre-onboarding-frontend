@@ -1,4 +1,4 @@
-import api from '../../../utils/api/useApi';
+import api from '../../../utils/apis/useApi';
 
 async function getTodoList() {
     const todoList = api.get(`${process.env.REACT_APP_API_URL}/todos`);

@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { getTodoList } from '../api/getTodo';
+import { getTodoList } from '../apis/getTodo';
 
 export function useGetTodos() {
     const [todos, setTodos] = useState([]);

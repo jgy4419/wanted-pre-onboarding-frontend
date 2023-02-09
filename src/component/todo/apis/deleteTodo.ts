@@ -1,4 +1,4 @@
-import api from '../../../utils/api/useApi';
+import api from '../../../utils/apis/useApi';
 
 function todoDelete(id: number) {
     if (window.confirm('정말로 삭제하시겠습니까?')) {

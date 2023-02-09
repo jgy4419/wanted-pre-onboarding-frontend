@@ -1,6 +1,6 @@
 import { ITodoItemProps } from './types/interface';
-import { putItem } from './api/todoPut';
-import { todoDelete } from './api/deleteTodo';
+import { putItem } from './apis/todoPut';
+import { todoDelete } from './apis/deleteTodo';
 import TodoEdit from './TodoEdit';
 import * as Item from './style/todoItem';
 import { useState } from 'react';

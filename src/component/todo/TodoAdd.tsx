@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { createTodo } from './api/todoPost';
+import { createTodo } from './apis/todoPost';
 import * as Add from './style/addTodo';
 
 const TodoAdd = () => {

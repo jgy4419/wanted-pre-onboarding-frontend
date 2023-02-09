@@ -1,4 +1,4 @@
-import api from '../../../utils/api/useApi';
+import api from '../../../utils/apis/useApi';
 
 function authPost(email: string, password: string) {
     // const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import api from '../../../utils/api/useApi';
+import api from '../../../utils/apis/useApi';
 
 function putItem(id: number,content: string, isCompleted: boolean) {
     if (content !== '') {

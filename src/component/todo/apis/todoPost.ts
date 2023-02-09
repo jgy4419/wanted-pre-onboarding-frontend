@@ -1,4 +1,4 @@
-import api from '../../../utils/api/useApi';
+import api from '../../../utils/apis/useApi';
 
 function createTodo(content: string) {
     const createTodo = api.post(`${process.env.REACT_APP_API_URL}/todos`, {

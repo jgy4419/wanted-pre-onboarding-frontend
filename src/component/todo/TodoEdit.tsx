@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { putItem } from './api/todoPut';
+import { putItem } from './apis/todoPut';
 import { ITodoEditProps, ITodoItemProps } from './types/interface';
 import * as Edit from './style/todoItem';
 
