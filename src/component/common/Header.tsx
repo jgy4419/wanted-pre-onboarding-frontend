@@ -7,8 +7,8 @@ import { logout } from '../auth/hooks/useLogout';
 const Header = () => {
     const { tokenState } = useTokenCheck();
 
-    const [url, setUrl] = useState(['/', '/auth']);
-    const [menuList, setMenuList] = useState(['Main', 'Login']);
+    const [url, setUrl] = useState(['/', '/signin', '/signup']);
+    const [menuList, setMenuList] = useState(['Main', 'Login', 'Join']);
  
     useEffect(() => {
         if (tokenState) {

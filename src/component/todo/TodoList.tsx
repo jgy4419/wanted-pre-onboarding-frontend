@@ -1,58 +1,33 @@
-import { useState } from 'react';
-import TodoModal from './modal/TodoModal';
-import { TodoType } from '../../utils/types/todo/type';
-import { useGetTodo } from './api/useTodoGet';
-import * as List from '../../styles/styledComponents/todo/styledTodoList';
+import { useGetTodos } from './hooks/useTodoMovement';
+import * as List from './style/todoList';
+import { ITodoMovement } from './types/interface';
+import { TodoType } from './types/type';
+import TodoItem from './TodoItem';
+import TodoAdd from './TodoAdd';
+// import { createContext } from 'react';
 
 const TodoList = () => {
-    const getTodo = useGetTodo();
-
-    const [modalState, setModalState] = useState('');
-    const [clickedTodo, setClickedTodo] = useState('');
-
-    const modalStateFunc = (type: string): void => {
-        setModalState(type);
-    };
-
-    function modalData (id: string): void{
-        setClickedTodo(id);
-        modalStateFunc('detail');
-    }
-
-    const props = {
-        modalState,
-        modalStateFunc
-    }
-
+    const { todos, todoLength }: ITodoMovement = useGetTodos();
+    
     return (
         <>
             <List.TodoListContain>
                 <List.TodoListInner>
-                    <ul className="todo_lists">
+                    <TodoAdd/>
+                    <List.TodoLists>
                         {
-                            Array.isArray(getTodo) && getTodo.length > 0 ? getTodo.map((item: TodoType) => {
+                            todoLength !== 0 ? todos.map((item: TodoType, index) => {
                                 return (
-                                    <li key={item.id} className="todo_list"
-                                        onClick={() => { modalData(item.id) }}>
-                                        <div className="content">
-                                            <h2 className="title">{item.title}</h2>
-                                            <p className="date">{item.createdAt.substr(0, 10)}</p>
-                                        </div>
-                                    </li>
+                                    <>
+                                        <TodoItem key={index} item={item} />
+                                    </>
                                 )
                             })
                                 : <List.NotTodo>투두가 없습니다..</List.NotTodo>
                         }
-                    </ul>
-                    <List.AddTodoButton onClick={ () => {modalStateFunc('create')}}>+</List.AddTodoButton>
+                    </List.TodoLists>
                 </List.TodoListInner>
             </List.TodoListContain>
-            <List.TodoModal>
-                {
-                    modalState === 'create' || modalState === 'detail' ? <TodoModal {...props} clickedTodo={ clickedTodo } />
-                    : null
-                }
-            </List.TodoModal>
         </>
     );
 };

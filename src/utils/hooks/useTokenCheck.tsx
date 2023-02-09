@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const useTokenCheck = () => {
     const [tokenState, setTokenState] = useState(false);
     
-    useEffect(() => {
+    useLayoutEffect(() => {
         localStorage.getItem('token')
             ? setTokenState(true)
             : setTokenState(false);

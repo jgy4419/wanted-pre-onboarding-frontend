@@ -19,6 +19,9 @@ export const BeforeLoginText = styled.div`
 export const TodoBlurText = styled.h2`
     font-size: 30px;
     color: #333;
+    @media screen and (max-width: 1200px) {
+        font-size: 20px;
+    }
 `
 
 export const TodoBlurButton = styled.button`
@@ -36,5 +39,10 @@ export const TodoBlurButton = styled.button`
     &:hover{
         background-color: #A6BB8D;
         color: #fff;
+    }
+    @media screen and (max-width: 1200px) {
+        font-size: 14px;
+        width: 120px;
+        height: 50px;
     }
 `

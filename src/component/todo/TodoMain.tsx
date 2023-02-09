@@ -1,35 +1,13 @@
-import { Link } from 'react-router-dom';
-import { blurTitle, blurContent } from '../../utils/constants';
-import * as Main from '../../styles/styledComponents/todo/styleTodoMain';
+import TodoBlur from './TodoBlur';
+import useTokenCheck from '../../utils/hooks/useTokenCheck';
+import TodoList from './TodoList';
 
 const TodoMain = () => {
+    const { tokenState } = useTokenCheck();
     return (
-        <Main.TodoContain>
-            <div className="todo_inner">
-                    <Main.BeforeLoginText>
-                        <Main.TodoBlurText>Todo를 만들기 위해서는 로그인이 필요해요!</Main.TodoBlurText>
-                        <Link to='/auth'>
-                            <Main.TodoBlurButton>로그인 하러 가기</Main.TodoBlurButton>
-                        </Link>
-                    </Main.BeforeLoginText>
-            </div>
-            <div className="todo_lists"
-            style={{
-                filter: "blur(4px)",
-                pointerEvents: "none"
-            }}>
-                {
-                    blurTitle.map((item, index) => {
-                        return (
-                            <li key={index} className="todo_list">
-                                <h2 className="title">{ item }</h2>
-                                <p className="content">{ blurContent[index] }</p>
-                            </li>
-                        )
-                    })
-                }
-            </div>
-        </Main.TodoContain>
+        tokenState === true
+            ? <TodoList/>
+            : < TodoBlur />
     );
 };
 

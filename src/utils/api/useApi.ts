@@ -3,7 +3,8 @@ import axios from 'axios';
 const api = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
     headers: {
-        'Content-type': 'application/json'
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
     }
 });
 
@@ -13,7 +14,7 @@ api.interceptors.request.use(config => {
 
     config.headers = {
         'Content-type': 'application/json',
-        Authorization: token
+        'Authorization': `Bearer ${token}`,
     };
     return config;
 });

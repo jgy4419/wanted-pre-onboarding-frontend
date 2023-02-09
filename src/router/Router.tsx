@@ -1,16 +1,29 @@
-import { Route, Routes } from 'react-router-dom';
-import Auth from '../pages/Auth';
-import TodoList from '../component/todo/TodoList';
-import UseLoginHook from '../utils/hooks/useLoginState';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import TodoMain from '../component/todo/TodoMain';
 import Page404 from '../pages/404';
+import Login from '../component/auth/Login';
+import Join from '../component/auth/Join';
+import useTokenCheck from '../utils/hooks/useTokenCheck';
 
 const Router = () => {
-    const MainLoginPage = UseLoginHook(TodoList);
+    const { tokenState } = useTokenCheck();
     return (
         <Routes>
-            <Route path="/" element={<MainLoginPage/>}/>
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/:id" element={ <Page404/>} />
+            <Route path="/" element={<Navigate to="/todo" />} />
+            < Route path="/todo" element={<TodoMain />} />
+            {
+                tokenState === true
+                    ? <Route path="/signin" element={<Navigate to="/todo" />} />
+                    : <Route path="/signin" element={<Login />} />
+                
+            }
+            {
+                tokenState === true
+                    ? <Route path="/signup/*" element={<Navigate to="/todo" />} />
+                    : <Route path="/signup" element={<Join />} />
+                
+            }
+            <Route path="/*" element={ <Page404/>} />
         </Routes>
     )
 }

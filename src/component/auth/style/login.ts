@@ -1,14 +1,25 @@
 import styled from 'styled-components';
-import { inputBasicStyle } from '../overlapStyle';
+import { inputBasicStyle } from '../../../styles/styledComponents/overlapStyle';
 
 
 export const LoginContain = styled.div`
     position: relative;
-    margin: auto;
-    width: 80%;
-    height: 400px;
-`;
+    width: 100vw;
+    height: 90vh;
+`
 
+export const LoginInner = styled.div`
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 40%;
+    height: 80%;
+    box-shadow: 4px 12px 30px 6px rgb(243, 239, 239);
+    @media screen and (max-width: 1200px) {
+        width: 70vw;
+    }
+`
 export const Text = styled.h1`
     font-size: 30px;
     font-weight: 700;

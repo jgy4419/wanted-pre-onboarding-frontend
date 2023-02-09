@@ -32,3 +32,22 @@ export const edit = css`
     border: 0;
     font-weight: 600;
 `
+
+export const TodoButton = css`
+    width: 70px;
+    height: 50px;
+    color: #333;
+    border-radius: 20px;
+    border: 0;
+    font-size: 17px;
+    font-weight: 700;
+    box-sizing: border-box;
+    margin-left: 10px;
+    cursor: pointer;
+    @media screen and (max-width: 1200px) {
+        border-radius: 15px;
+        font-size: 14px;
+        width: 60px;
+        height: 50px;
+    }
+`
