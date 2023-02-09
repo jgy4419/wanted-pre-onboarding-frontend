@@ -23,6 +23,7 @@ export const TodoLists = styled.ul`
         width: 70%;
     }
 `
+
 export const NotTodo = styled.h1`
     color: #333;
 `

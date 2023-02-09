@@ -18,9 +18,7 @@ const TodoList = () => {
                         {
                             todoLength !== 0 ? todos.map((item: TodoType, index) => {
                                 return (
-                                    <>
-                                        <TodoItem key={index} item={item} />
-                                    </>
+                                    <TodoItem key={index} item={item} />
                                 )
                             })
                                 : <List.NotTodo>투두가 없습니다..</List.NotTodo>

@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 `
 
+export const HeadItemContain = styled.div``;
+
 export const HeaderContain = styled.div`
     position: relative;
     width: 100vw;

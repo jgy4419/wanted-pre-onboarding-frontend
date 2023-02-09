@@ -26,11 +26,11 @@ const Header = () => {
                     {
                         menuList.map((item, index) => {
                             return (
-                                <>
-                                    <Link to={url[index]} key={index}>
+                                <Head.HeadItemContain key = {index}>
+                                    <Link to={url[index]} key={item}>
                                         <Head.MenuItem>{item}</Head.MenuItem>
                                     </Link>
-                                </>
+                                </Head.HeadItemContain>
                             )
                         })
                     }
