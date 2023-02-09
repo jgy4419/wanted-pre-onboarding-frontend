@@ -1,7 +1,7 @@
 import api from '../../../utils/apis/useApi';
 
 function authPost(email: string, password: string) {
-    const authPost = api.post(`${process.env.REACT_APP_API_URL}/auth/signup`, {
+    const authPost = api.post(`/auth/signup`, {
         email, password
     });
 
@@ -16,7 +16,7 @@ function authPost(email: string, password: string) {
 }
 
 function loginAuth(email: string, password: string) {
-    const loginAuth = api.post(`${process.env.REACT_APP_API_URL}/auth/signin`, {
+    const loginAuth = api.post(`/auth/signin`, {
         email,
         password
     });
@@ -26,7 +26,6 @@ function loginAuth(email: string, password: string) {
         window.location.href = "/todo";
         return res
     }).catch(err => {
-        console.log(process.env.REACT_APP_API_URL);
         alert('아이디나 비밀번호가 잘못되었습니다.');
         return err;
     });

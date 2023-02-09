@@ -4,7 +4,6 @@ import { ITodoMovement } from './types/interface';
 import { TodoType } from './types/type';
 import TodoItem from './TodoItem';
 import TodoAdd from './TodoAdd';
-// import { createContext } from 'react';
 
 const TodoList = () => {
     const { todos, todoLength }: ITodoMovement = useGetTodos();
