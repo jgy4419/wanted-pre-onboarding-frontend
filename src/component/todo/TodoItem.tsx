@@ -6,8 +6,25 @@ import * as Item from './style/todoItem';
 import { useState } from 'react';
 
 
-const TodoItem = ({ item }: ITodoItemProps) => {
+const TodoItem = ({ item, setReloadCount }: ITodoItemProps) => {
     const [editState, setEditState] = useState<boolean>(false);
+
+    const deleteHandler = (id: number) => {
+        setReloadCount(prev => prev - 1);
+        todoDelete(id)
+    }
+
+    const checkBoxHandler = (id: number, todo: string, isCompleted: boolean) => {
+        putItem(id, todo, isCompleted)
+        setReloadCount((prev) => prev + 1);
+    }
+
+    const editProps = {
+        item,
+        setEditState,
+        editState,
+        setReloadCount
+    }
     return (
         <>
             {  
@@ -16,7 +33,7 @@ const TodoItem = ({ item }: ITodoItemProps) => {
                         <Item.TodoContain>
                             <Item.TodoCheckBox
                                 checked={ item.isCompleted}
-                                onClick={() => putItem(item.id, item.todo, !item.isCompleted)}
+                                onClick={() => checkBoxHandler(item.id, item.todo, !item.isCompleted)}
                             />
                             <Item.TodoContent>{item?.todo}</Item.TodoContent>
                             <Item.TodoEdit>
@@ -25,7 +42,7 @@ const TodoItem = ({ item }: ITodoItemProps) => {
                                     onClick={() => { setEditState(true) }}
                                 >수정</Item.TodoEditButton>
                                 <Item.TodoDeleteButton
-                                    onClick={() => todoDelete(item.id)}
+                                    onClick={() => deleteHandler(item.id)}
                                     data-testid="delete-button"
                                 >삭제</Item.TodoDeleteButton>
                             </Item.TodoEdit>
@@ -33,7 +50,7 @@ const TodoItem = ({ item }: ITodoItemProps) => {
                     </Item.TodoList>
             }
             
-            <TodoEdit item={ item }  editState={editState} setEditState={ setEditState}/>
+            <TodoEdit {...editProps} />
         </>
     );
 };

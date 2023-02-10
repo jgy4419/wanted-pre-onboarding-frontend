@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import TodoMain from '../component/todo/TodoMain';
 import Page404 from '../pages/404';
-import Login from '../component/auth/Login';
-import Join from '../component/auth/Join';
+import Login from '../pages/Login';
+import Join from '../pages/Join';
 import useTokenCheck from '../utils/hooks/useTokenCheck';
 
 const Router = () => {

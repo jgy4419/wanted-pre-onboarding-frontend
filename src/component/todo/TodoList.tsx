@@ -6,18 +6,18 @@ import TodoItem from './TodoItem';
 import TodoAdd from './TodoAdd';
 
 const TodoList = () => {
-    const { todos, todoLength }: ITodoMovement = useGetTodos();
-    
+    const { todos, todoLength, setReloadCount }: ITodoMovement = useGetTodos();
+
     return (
         <>
             <List.TodoListContain>
                 <List.TodoListInner>
-                    <TodoAdd/>
+                    <TodoAdd setReloadCount={ setReloadCount } />
                     <List.TodoLists>
                         {
                             todoLength !== 0 ? todos.map((item: TodoType, index) => {
                                 return (
-                                    <TodoItem key={index} item={item} />
+                                    <TodoItem key={index} setReloadCount={setReloadCount} item={item} />
                                 )
                             })
                                 : <List.NotTodo>투두가 없습니다..</List.NotTodo>

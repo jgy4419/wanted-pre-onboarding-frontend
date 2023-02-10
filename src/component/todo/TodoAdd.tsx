@@ -1,13 +1,17 @@
 import { useRef } from 'react';
 import { createTodo } from './apis/todoPost';
 import * as Add from './style/addTodo';
+import { ITodoItemAddProps } from './types/interface';
 
-const TodoAdd = () => {
+const TodoAdd = ({setReloadCount}: ITodoItemAddProps) => {
     const content = useRef<HTMLInputElement>(null);
+
     const createHandler = () => {
+        setReloadCount((prev) => prev + 1);
         createTodo(content.current!.value);
         content.current!.value = '';
     }
+    
     return (
         <>
             <Add.TodoContain>

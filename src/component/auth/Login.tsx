@@ -1,19 +1,17 @@
 import { useRef, KeyboardEvent } from 'react';
 import { loginAuth } from './apis/useAuthPost';
-// import { api } from './api/useAuthPost';
 import * as LoginStyle from './style/login';
 
 const Login = () => {
     const email = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
-    // const loginAuth = useLoginAuth();
     
     const loginState = (enter: KeyboardEvent): void => {
         if (enter.key === 'Enter') {
-            // loginAuth.mutate({ email: email.current!.value, password: password.current!.value })
             loginAuth(email.current!.value, password.current!.value);
         }
     }
+    
     return (
         <LoginStyle.LoginContain>
             <LoginStyle.LoginInner>
