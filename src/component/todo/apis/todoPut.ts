@@ -1,8 +1,8 @@
 import api from '../../../utils/apis/useApi';
 
-function putItem(id: number,content: string, isCompleted: boolean) {
+async function putItem(id: number,content: string, isCompleted: boolean) {
     if (content !== '') {
-        api.put(`/todos/${id}`, {
+        await api.put(`/todos/${id}`, {
             todo: content,
             isCompleted
         });

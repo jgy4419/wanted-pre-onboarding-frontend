@@ -1,14 +1,13 @@
 import { useRef } from 'react';
-import { putItem } from './apis/todoPut';
-import { ITodoEditProps, ITodoItemProps } from './types/interface';
+import { ITodoEditProps } from './types/interface';
 import * as Edit from './style/todoItem';
 
-const TodoEdit = ({ item, editState, setEditState, setReloadCount }: ITodoItemProps & ITodoEditProps) => {
+// typr => ITodoItemProps & ITodoEditProps
+const TodoEdit = ({ editTodo, item, editState, setEditState }: ITodoEditProps) => {
     const content = useRef<HTMLInputElement>(null);
     const editHandler = () => {
-        putItem(item.id, content.current!.value, true);
+        editTodo(item.id, content.current!.value, true);
         setEditState(false)
-        setReloadCount((prev) => prev + 1);
     }
     return (
         <>
@@ -22,8 +21,7 @@ const TodoEdit = ({ item, editState, setEditState, setReloadCount }: ITodoItemPr
                     onClick={() => { editHandler() }}
                 >제출</Edit.TodoSubmitButton>
                 <Edit.TodoDeleteButton data-testid="cancel-button"
-                    onClick={() => {
-                    }}
+                    onClick={() => setEditState(false)}
                 >취소</Edit.TodoDeleteButton>
             </Edit.TodoList>
             }

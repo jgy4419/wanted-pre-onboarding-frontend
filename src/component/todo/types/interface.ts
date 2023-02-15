@@ -1,12 +1,4 @@
-import { TodoType } from "./type";
-
-export interface ITodoMovement {
-    todos?: TodoType[],
-    todoLength?: number
-    reloadCount: number
-    setReloadCount: React.Dispatch<React.SetStateAction<number>>
-    setEditReloadState: React.Dispatch<React.SetStateAction<boolean>>
-}
+import { TodoType, createTodo, deleteTodo, editTodo } from "./type";
 
 export interface ITodoItemAddProps {
     setReloadCount: React.Dispatch<React.SetStateAction<number>>
@@ -14,11 +6,21 @@ export interface ITodoItemAddProps {
 
 export interface ITodoItemProps {
     item: TodoType,
-    setReloadCount: React.Dispatch<React.SetStateAction<number>>
+    editTodo: editTodo,
+    deleteTodo: deleteTodo
 }
 
 export interface ITodoEditProps {
     item: TodoType,
     editState: boolean,
+    editTodo: editTodo,
     setEditState: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface IUseTodo {
+    todos: TodoType[],
+    setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>,
+    editTodo: editTodo,
+    createTodo: createTodo,
+    deleteTodo: deleteTodo,
 }

@@ -1,23 +1,27 @@
-import { useGetTodos } from './hooks/useTodoMovement';
+import { useTodo } from './hooks/useTodoMovement';
 import * as List from './style/todoList';
-import { ITodoMovement } from './types/interface';
-import { TodoType } from './types/type';
 import TodoItem from './TodoItem';
 import TodoAdd from './TodoAdd';
+import { IUseTodo } from './types/interface';
+import { TodoType } from './types/type';
 
 const TodoList = () => {
-    const { todos, todoLength, setReloadCount }: ITodoMovement = useGetTodos();
+    const { todos, editTodo, createTodo, deleteTodo }: IUseTodo = useTodo();
 
+    const todoItemProps = {
+        editTodo,
+        deleteTodo
+    }
     return (
         <>
             <List.TodoListContain>
                 <List.TodoListInner>
-                    <TodoAdd setReloadCount={ setReloadCount } />
+                    <TodoAdd createTodo={ createTodo } />
                     <List.TodoLists>
                         {
-                            todoLength !== 0 ? todos.map((item: TodoType, index) => {
+                            todos.length !== 0 ? todos!.map((item: TodoType, index) => {
                                 return (
-                                    <TodoItem key={index} setReloadCount={setReloadCount} item={item} />
+                                    <TodoItem key={index} {...todoItemProps} item={item} />
                                 )
                             })
                                 : <List.NotTodo>투두가 없습니다..</List.NotTodo>

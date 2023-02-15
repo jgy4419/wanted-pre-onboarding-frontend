@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
+    // 배포 시 env 파일 잘 적용 안되는 것 같아서 일단 빼서 쓰기.
+    baseURL: 'https://pre-onboarding-selection-task.shop',
     headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
