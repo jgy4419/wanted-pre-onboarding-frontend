@@ -1,14 +1,15 @@
 import { useRef } from 'react';
 import * as Add from './style/addTodo';
+import { ITodoAdd } from './types/interface';
 
-const TodoAdd = ({createTodo}: any) => {
+const TodoAdd = ({createTodo}: ITodoAdd) => {
     const content = useRef<HTMLInputElement>(null);
 
     const createHandler = () => {
         createTodo(content.current!.value);
         content.current!.value = '';
     }
-    
+
     return (
         <>
             <Add.TodoContain>

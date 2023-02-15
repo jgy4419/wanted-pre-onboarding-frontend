@@ -4,6 +4,10 @@ export interface ITodoItemAddProps {
     setReloadCount: React.Dispatch<React.SetStateAction<number>>
 }
 
+export interface ITodoAdd {
+    createTodo: createTodo
+}
+
 export interface ITodoItemProps {
     item: TodoType,
     editTodo: editTodo,
