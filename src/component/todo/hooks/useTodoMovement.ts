@@ -9,7 +9,7 @@ export function useTodo() {
     const [todos, setTodos] = useState<TodoType[]>([]);
     
     const createTodo = (content: string) => {
-        const createTodoAPI = api.post(`${process.env.REACT_APP_API_URL}/todos`, {
+        const createTodoAPI = api.post(`/todos`, {
             todo: content
         });
 
