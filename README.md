@@ -22,7 +22,12 @@ https://github.com/walking-sunset/selection-task
 2. npm install
 3. npm start (실행 전 node 버전 확인)
 
-## 전체 영상
+## 배포 URL / 전체 영상
+
+### 배포 URL
+https://jgytodo.vercel.app/
+
+### 전체 영상
 https://user-images.githubusercontent.com/76980526/217550955-a0b74920-e89d-4d1e-ad14-73fcccdb43b6.mov
 
 ## 파일 구조
