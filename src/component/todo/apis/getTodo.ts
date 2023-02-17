@@ -1,6 +1,6 @@
 import api from '../../../utils/apis/useApi';
 
-async function getTodoList() {
+function getTodoList() {
     const todoList = api.get(`/todos`);
     return todoList;
 }

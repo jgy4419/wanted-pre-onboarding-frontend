@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { ITodoEditProps } from './types/interface';
 import * as Edit from './style/todoItem';
 
-// typr => ITodoItemProps & ITodoEditProps
 const TodoEdit = ({ editTodo, item, editState, setEditState }: ITodoEditProps) => {
     const content = useRef<HTMLInputElement>(null);
     const editHandler = () => {

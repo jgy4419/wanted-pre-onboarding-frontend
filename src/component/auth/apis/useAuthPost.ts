@@ -11,8 +11,8 @@ function authPost(email: string, password: string) {
         return res;
     }).catch(err => {
         alert('이메일이나 비밀번호가 잘못되었습니다.');
-        return err;   
-    })
+        return err;
+    });
 }
 
 function loginAuth(email: string, password: string) {
