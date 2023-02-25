@@ -18,8 +18,6 @@ export const TodoContain = styled.label`
     justify-content: space-between;
 `
 
-
-
 export const TodoCheckBox = styled.input.attrs({
     type: 'checkbox',
 })`
